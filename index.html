@@ -37,7 +37,7 @@
             <p class="hero-invitation">THƯ MỜI TIỆC CƯỚI</p>
             <div class="hero-divider"></div>
             <div class="date-wrapper">
-                <p class="date-weekday">08:00 - Thứ Năm</p>
+                <p class="date-weekday">Thứ Năm</p>
                 <div class="date-main">
                     <span class="date-day">01 . 01 . 2026</span>
                 </div>
@@ -91,7 +91,7 @@
     <div class="event-cards">
         <div class="event-card fade-in">
             <h3>TIỆC CƯỚI NHÀ TRAI</h3>
-            <p class="event-time">Thứ Năm - 08H00</p>
+            <p class="event-time">Thứ Năm - 10H00</p>
             <p class="event-date">01.01.2026</p>
             <p class="event-location">Tại Tư Gia Nhà Trai</p>
             <p class="event-address">(Tức Ngày 13 Tháng 11 Năm Ất Tỵ)</p>
@@ -100,14 +100,14 @@
 
         <div class="event-card fade-in">
             <h3>TIỆC CƯỚI NHÀ GÁI</h3>
-            <p class="event-time">Thứ Năm - 08H30</p>
+            <p class="event-time">Thứ Năm - 09H00</p>
             <p class="event-date">01.01.2026</p>
             <p class="event-location">Tại Tư Gia Nhà Gái</p>
             <p class="event-address">(Tức Ngày 13 Tháng 11 Năm Ất Tỵ)</p>
             <a href="#" class="event-btn">XÁC NHẬN THAM DỰ</a>
         </div>
     </div>
-        <div class="location-section">
+    <div class="location-section">
         <h2 class="location-title">Địa điểm tổ chức</h2>
 
         <div class="location-cards">
@@ -528,7 +528,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     items.forEach(item => observer.observe(item));
 });
+document.addEventListener("DOMContentLoaded", () => {
+    const fadeElements = document.querySelectorAll(".fade-in");
 
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target); // chỉ chạy 1 lần
+                }
+            });
+        },
+        {
+            threshold: 0.3 // xuất hiện 20% là chạy
+        }
+    );
+
+    fadeElements.forEach(el => observer.observe(el));
+});
 </script>
 
 </body>
