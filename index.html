@@ -83,7 +83,7 @@
             </p>
         </div>
         <div class="event-photos">
-            <img src="img/Album/Grid5.jpg" class="event-photo left-photo">
+            <img src="img/Album/left.jpg" class="event-photo left-photo">
             <img src="img/Album/center.jpg" class="event-photo center-photo">
             <img src="img/Album/254A6388.jpg" class="event-photo right-photo">
         </div>
@@ -528,25 +528,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     items.forEach(item => observer.observe(item));
 });
-document.addEventListener("DOMContentLoaded", () => {
-    const fadeElements = document.querySelectorAll(".fade-in");
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                    observer.unobserve(entry.target); // chỉ chạy 1 lần
-                }
-            });
-        },
-        {
-            threshold: 0.3 // xuất hiện 20% là chạy
-        }
-    );
-
-    fadeElements.forEach(el => observer.observe(el));
-});
 </script>
 
 </body>
