@@ -65,7 +65,7 @@
             margin-bottom: -30px;
         }
         .content-date {
-            margin-top: 550px;
+            margin-top: 450px;
         }
         .hero-invitation {
             font-size: 16px;
@@ -491,8 +491,8 @@
             padding: 40px 30px;
             border-radius: 10px;
             box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-        }
 
+        }
         .calendar-month {
             text-align: center;
             margin-bottom: 30px;
@@ -825,8 +825,15 @@
     gap: 20px;
     align-items: flex-start;
     transition: transform 0.3s ease;
-}
 
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.7s ease;
+}
+.location-card.show {
+    opacity: 1;
+    transform: translateX(0);
+}
 .location-card:hover {
     transform: translateY(-5px);
 }
@@ -1388,4 +1395,15 @@ body {
 
 .album-item.show {
     transform: translateX(0);
+}
+
+
+/* =========================
+   FADE IN ON SCROLL
+========================= */
+
+/* Delay nhẹ cho thẻ thứ 2 */
+.event-card.fade-in:nth-child(2).show,
+.location-card.fade-in:nth-child(2).show {
+    transition-delay: 0.2s;
 }
